@@ -1,0 +1,21 @@
+{
+  "name": "LandslidesPOA",
+  "version": "0.0.0",
+  "homepage": "https://github.com/SpaceAppsPOA2014/LandslidesPOA",
+  "authors": [
+    "romulobr <romulobr@gmail.com>"
+  ],
+  "description": "landslide app",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.2.16"
+  }
+}
