@@ -1,0 +1,14 @@
+<div ng-controller="ReportCtrl" class="map-view">
+  <div class="map-actions">
+    <button>cancel</button>
+    <button ng-click="selectOption(option.id)" ng-repeat="option in reportModel.options">{{option.name}}</button>
+  </div>
+  <leaflet center="center"></leaflet>
+  <div class="map-input">
+    <textarea placeholder="Description" ng-model="reportModel.report.description"></textarea>
+  </div>
+  <div class="map-bottom-actions">
+    <button>upload</button> 
+    <button ng-click="saveReport()">ok</button>
+  </div>
+</div>
