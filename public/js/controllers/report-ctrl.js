@@ -1,10 +1,10 @@
-angular.module('landslidesPOA.controllers').controller('ReportCtrl', function($scope, geolocation, reportModel) {
+angular.module('landslidesPOA.controllers').controller('ReportCtrl', function($scope, geolocation, reportModel, $upload) {
 
   geolocation.getLocation().then(function(data) {
     $scope.center = {
       lat: data.coords.latitude,
       lng: data.coords.longitude,
-      zoom: 12
+      zoom: 16
    };
   });
 
@@ -24,12 +24,32 @@ angular.module('landslidesPOA.controllers').controller('ReportCtrl', function($s
     reportModel.saveReport();
   };
 
+  $scope.chooseFile= function() {
+    $('#file-input-button').click(function(){$('#file-input').click();})
+  };
+
   $scope.selectOption = function(option) {
     reportModel.selectOption(option);
   };
 
   $scope.cancel = function() {
     reportModel.clear(); 
+  };
+
+  $scope.onFileSelect = function($files) {
+    var i = 0;
+    for (i = 0; i < $files.length; i++) {
+      var file = $files[i];
+      $scope.upload = $upload.upload({
+        url: '/upload',
+        data: {myObj: 'help'},
+        file: file
+      }).progress(function(evt) {
+        console.log('percent: ' + parseInt(100.0 * evt.loaded / evt.total));
+      }).success(function(data, status, headers, config) {
+        console.log(data);
+      });
+    }
   };
 });
 

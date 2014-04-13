@@ -11,7 +11,8 @@ angular.module('landslidesPOA',
      'landslidesPOA.services',
      'leaflet-directive',
      'geolocation',
-     'ngResource'
+     'ngResource',
+      'angularFileUpload'
     ]).
 config(function($routeProvider, $httpProvider, $sceDelegateProvider) {
 
