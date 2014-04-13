@@ -23,18 +23,18 @@
       </div>
     </div>
 </div> -->
-<leafletcenter="reportModel.report.center">
+<leaflet center="reportModel.report.center">
 </leaflet>
 <div class="absolute footer">
     <div class="carousel">
         <ul class="inline-list">
-            <li ng:repeat="report in reportModel.report.reports">
+            <li ng-repeat="report in reportModel.report.reports">
                 <a href="#">
-                    <div ng-if="!report.images">
-                        <img src="{{report.images}}" />
+                    <div ng-if="report.images">
+                        <img src="{{report.images}}"  title="{{report.description}}"/>
                     </div>
-                    <div ng-if="video == video.large">
-                        <img src="../images/{{reportModel.getOptionbyId(report.hazzardLevel).icon}}" />
+                    <div ng-if="!report.images">
+                        <img src="../images/{{reportModel.getOptionbyId(report.hazzardLevel).icon}}" title="{{report.description}}"/>
                     </div>
                 </a>
             </li>

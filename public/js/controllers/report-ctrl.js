@@ -1,4 +1,4 @@
-angular.module('landslidesPOA.controllers').controller('ReportCtrl', function ($scope, geolocation, reportModel, $upload, $modal) {
+angular.module('landslidesPOA.controllers').controller('ReportCtrl', function ($scope, geolocation, reportModel, $upload, $modal, $log) {
 
     geolocation.getLocation().then(function (data) {
       reportModel.setCenter(data.coords, 16);
