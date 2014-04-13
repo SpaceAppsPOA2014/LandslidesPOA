@@ -1,10 +1,11 @@
 var express = require('express'),
 	app = express(),
 	mongoDb = require('mongodb').Db;
+  Server = require('mongodb').Server;
 
 var SlideReportProvider = require('./lib/providers/slideReportProvider.js'),
     SlideReport = require('./lib/slideReport.js'),
-    slideReports = SlideReportProvider.create(mongoDb);
+    slideReports = SlideReportProvider.create(mongoDb, Server);
 
 app.use(express.static('./public'));
 

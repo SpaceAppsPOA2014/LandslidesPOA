@@ -1,16 +1,29 @@
 <div ng-controller="ReportCtrl" class="map-view">
-  <div class="map-actions-cancel">
-    <a><img ng-click="cancel()" src="../images/icon_cancel.png"></img></a>
-  </div>
-  <div class="map-actions">
-    <a ng-click="selectOption(option.id)" ng-repeat="option in reportModel.options"><img ng-class="{'selected': option.id === reportModel.report.option}" ng-src="../images/{{option.icon}}" class="{{option.class}}"></img></a>
-  </div>
-  <leaflet center="center"></leaflet>
-  <div class="map-input">
-    <textarea placeholder="Description" ng-model="reportModel.report.description"></textarea>
-  </div>
-  <div class="map-bottom-actions">
-    <a><img src="../images/icon_camera.png"></img></a>
-    <a ng-click="saveReport()"><img src="../images/icon_check.png"></img></a>
-  </div>
+    <div class="absolute">
+        <div class="row">
+            <div ng-repeat="option in reportModel.options" class="small-4 large-4 columns text-center ">
+                <a ng-click="selectOption(option.id)">
+                    <img ng-class="{'selected': option.id === reportModel.report.option}"
+                         ng-src="../images/{{option.icon}}" class="{{option.class}}"></img>
+                </a>
+            </div>
+            <div class="row">
+                <div class="map-input">
+                    <textarea placeholder="Description" ng-model="reportModel.report.description"></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="absolute footer">
+        <div class="row">
+            <div class="small-6 large-6 columns text-center ">
+                <a class="button"><img src="../images/icon_camera.png"></img></a>
+            </div>
+            <div class="small-6 large-6 columns text-center ">
+                <a class="button" ng-click="saveReport()"><img src="../images/icon_check.png"></img></a>
+            </div>
+        </div>
+    </div>
+    <leaflet center="center">
+    </leaflet>
 </div>
