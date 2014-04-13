@@ -30,7 +30,20 @@ body {
 }
 
 .map-view .map-actions a img {
+  border: transparent solid 5px;
   width: 50px;
+}
+
+.map-view .map-actions a img.selected.green {
+  border: #39d529 solid 5px;
+}
+
+.map-view .map-actions a img.selected.yellow {
+  border: #e7d45b solid 5px;
+}
+
+.map-view .map-actions a img.selected.red {
+  border: #fd1916 solid 5px;
 }
 
 .map-view .map-bottom-actions {

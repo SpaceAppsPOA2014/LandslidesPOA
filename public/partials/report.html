@@ -1,9 +1,9 @@
 <div ng-controller="ReportCtrl" class="map-view">
   <div class="map-actions-cancel">
-    <a><img src="../images/icon_cancel.png"></img></a>
+    <a><img ng-click="cancel()" src="../images/icon_cancel.png"></img></a>
   </div>
   <div class="map-actions">
-    <a ng-click="selectOption(option.id)" ng-repeat="option in reportModel.options"><img ng-src="../images/{{option.icon}}"></img></a>
+    <a ng-click="selectOption(option.id)" ng-repeat="option in reportModel.options"><img ng-class="{'selected': option.id === reportModel.report.option}" ng-src="../images/{{option.icon}}" class="{{option.class}}"></img></a>
   </div>
   <leaflet center="center"></leaflet>
   <div class="map-input">

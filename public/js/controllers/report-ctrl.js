@@ -28,5 +28,8 @@ angular.module('landslidesPOA.controllers').controller('ReportCtrl', function($s
     reportModel.selectOption(option);
   };
 
+  $scope.cancel = function() {
+    reportModel.clear(); 
+  };
 });
 
