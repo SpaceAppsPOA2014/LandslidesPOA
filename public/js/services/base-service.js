@@ -10,10 +10,9 @@ angular.module('landslidesPOA.services').service('baseService', function($resour
     return $resource(BASE_URL + resources[resourceName].url, 
       resources[resourceName].params, {
       get: {method: 'GET', timeout: 50000},
-      post: {method: 'POST', timeout: 50000}
+      query: {method: 'GET', timeout: 50000, isArray:true},
     });
   };
-
   this.post = function(resourceName, args) {
     return createResource(resourceName).post(args).$promise;
   };

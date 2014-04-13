@@ -41,11 +41,29 @@ angular.module('landslidesPOA.models').factory('reportModel', function(reportSer
       }
     };
   };
+  var fetchAll = function() {
+    
+    var promise = reportService.fetchReport();
+    promise.then(function(data) {
+      report.reports = data;
+    });
+  }
+  var getOptionbyId = function(id){
+    aux = 0;
+    angular.forEach(options, function(dataset) {
+      if(dataset.id===id){
+          aux = id;
+          return;
+      }
+    });
+    return options[aux-1];    
+  }
   return {
     report: report,
     options: options,
     saveReport: saveReport,
     selectOption: selectOption,
+    getOptionbyId : getOptionbyId,
     clear: clear,
     setImage: setImage,
     setCenter: setCenter,

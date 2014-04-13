@@ -3,4 +3,7 @@ angular.module('landslidesPOA.services').service('reportService', function(baseS
   this.saveReport = function(report) {
     return baseService.post('SaveReport', report);
   };
+  this.fetchReport = function() {
+    return baseService.get('FetchReport');
+  };
 });
