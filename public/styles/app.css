@@ -41,6 +41,23 @@
   width : 100%;
   height : 100%;
 }
+
+.map-view a img {
+    border: transparent solid 5px;
+}
+
+.map-view  a img.selected.green {
+    border: #39d529 solid 5px;
+}
+
+.map-view a img.selected.yellow {
+    border: #e7d45b solid 5px;
+}
+
+.map-view a img.selected.red {
+    border: #fd1916 solid 5px;
+}
+
 /*
 .map-view>div {
   position: absolute;

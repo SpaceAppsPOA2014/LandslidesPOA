@@ -3,7 +3,10 @@ var express = require('express'),
 	mongoDb = require('mongodb').Db;
   Server = require('mongodb').Server,
   multipart = require('connect-multiparty'),
+  bodyParser = require('body-parser'),
   cloudinary = require('cloudinary');
+
+app.use(bodyParser());
 
 var multipartMiddleware = multipart();
 
@@ -17,23 +20,31 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET
 });
 
-app.use(express.static('./public'));
-
 app.post('/upload', multipartMiddleware, function(req, res) {
   cloudinary.uploader.upload(req.files.file.path, function(result) {
     res.send({imageUrl: result.url});
   });
 });
 
-app.get('/save', function(req, res) {
-  var geoLocation = {latitude:1000, longitude:2000},
-  	  hazzardLevel = 2,
-  	  images = ['anImage','otherImage'],
+app.post('/report/save', function(req, res) {
+  var geoLocation = {lat: req.body.center.lat, lng: req.body.center.lng, zoom: req.body.center.zoom},
+      description = req.body.description,
+  	  hazzardLevel = req.body.option,
+  	  images = req.body.image,
   	  created_at = new Date();
-
-  slideReports.save(SlideReport.create(geoLocation, hazzardLevel, images, created_at));
-  res.send('boa bonitão!');
+  var slideReport = SlideReport.create(description, geoLocation, hazzardLevel, images, created_at);
+  slideReports.save(slideReport, function (error) {
+    res.send({status:200, report:slideReport});
+  });
 });
+
+app.get('/reports', function(req, res) {
+  slideReports.list(function(error, reports) {
+    res.send(reports);
+  });
+});
+
+app.use(express.static('./public'));
 
 app.listen(3000);
 

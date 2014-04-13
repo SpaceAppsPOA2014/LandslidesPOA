@@ -1,9 +1,9 @@
 angular.module('landslidesPOA.services').service('baseService', function($resource) {
 
-  var BASE_URL = 'http://appsspacepoa.com';
+  var BASE_URL = '/';
 
   var resources = {
-    SaveReport: {url: '/report/save'}
+    SaveReport: {url: 'report/save'}
   };
 
   var createResource = function(resourceName) {
