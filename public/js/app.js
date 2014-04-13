@@ -16,10 +16,14 @@ angular.module('landslidesPOA',
 config(function($routeProvider, $httpProvider, $sceDelegateProvider) {
 
   $routeProvider
-    .when('/', {
+    .when('/report', {
       templateUrl: 'partials/report.html',
       reloadOnSearch: false
+    })
+    .when('/info', {
+      templateUrl: 'partials/info.html',
+      reloadOnSearch: false
     });
-    $routeProvider.otherwise({redirectTo: '/'});
+    $routeProvider.otherwise({redirectTo: '/report'});
 });
 

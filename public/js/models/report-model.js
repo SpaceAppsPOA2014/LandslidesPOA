@@ -2,9 +2,9 @@ angular.module('landslidesPOA.models').factory('reportModel', function(reportSer
 
   var report = {};
   var options = [
-    {name: 'Rain', icon: 'icon_verde.jpg', id: 1, class:"green"},
-    {name: 'Landslide', icon: 'icon_amarelo.jpg', id: 2, class:"yellow"},
-    {name: 'Run', icon: 'icon_vermelho.jpg', id: 3, class:"red"},
+    {name: 'Rain', icon: 'icon_verde.jpg', id: 1, class: 'green'},
+    {name: 'Landslide', icon: 'icon_amarelo.jpg', id: 2, class: 'yellow'},
+    {name: 'Run', icon: 'icon_vermelho.jpg', id: 3, class: 'red'},
   ];
 
   var saveReport = function() {
