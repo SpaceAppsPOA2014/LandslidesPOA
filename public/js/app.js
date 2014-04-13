@@ -21,6 +21,10 @@ config(function($routeProvider, $httpProvider, $sceDelegateProvider) {
       templateUrl: 'partials/report.html',
       reloadOnSearch: false
     })
+    .when('/view',{
+      templateUrl: 'partials/viewreport.html',
+      reloadOnSearch: false
+    })
     .when('/info', {
       templateUrl: 'partials/info.html',
       reloadOnSearch: false

@@ -15,7 +15,6 @@ angular.module('landslidesPOA.controllers').controller('ReportCtrl', function($s
     lng: -51.17052,
     zoom: 5
   };
-
   $scope.defaults = {
     scrollWheelZoom: false
   };
@@ -34,6 +33,13 @@ angular.module('landslidesPOA.controllers').controller('ReportCtrl', function($s
 
   $scope.cancel = function() {
     reportModel.clear(); 
+  };
+
+  $scope.get = function() {
+    return $http({
+              url: '/get', 
+              method: "GET"
+           });
   };
 
   $scope.onFileSelect = function($files) {
