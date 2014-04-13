@@ -30,6 +30,17 @@ angular.module('landslidesPOA.models').factory('reportModel', function(reportSer
     report.center.zoom = zoom;
   };
 
+  var setMarker = function() {
+    report.markers = {
+      lalaMarker: {
+        lat: report.center.lat,
+        lng: report.center.lng,
+        message: "I want to travel here!",
+        //focus: true,
+        draggable: true
+      }
+    };
+  };
   return {
     report: report,
     options: options,
@@ -37,7 +48,8 @@ angular.module('landslidesPOA.models').factory('reportModel', function(reportSer
     selectOption: selectOption,
     clear: clear,
     setImage: setImage,
-    setCenter: setCenter
+    setCenter: setCenter,
+    setMarker: setMarker
   };
 });
 
