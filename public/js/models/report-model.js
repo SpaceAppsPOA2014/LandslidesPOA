@@ -1,10 +1,11 @@
 angular.module('landslidesPOA.models').factory('reportModel', function(reportService) {
 
   var report = {};
+  report.center = {};
   var options = [
-    {name: 'Rain', icon: 'icon_verde.jpg', id: 1, class: 'green'},
-    {name: 'Landslide', icon: 'icon_amarelo.jpg', id: 2, class: 'yellow'},
-    {name: 'Run', icon: 'icon_vermelho.jpg', id: 3, class: 'red'},
+    {name: 'Rain', icon: 'icon_verde.png', id: 1, class: 'green'},
+    {name: 'Landslide', icon: 'icon_amarelo.png', id: 2, class: 'yellow'},
+    {name: 'Run', icon: 'icon_vermelho.png', id: 3, class: 'red'},
   ];
 
   var saveReport = function() {
@@ -19,12 +20,24 @@ angular.module('landslidesPOA.models').factory('reportModel', function(reportSer
     report.option = undefined;
   };
 
+  var setImage = function(image) {
+    report.image = image;
+  };
+
+  var setCenter = function(coords, zoom) {
+    report.center.lat = coords.latitude;
+    report.center.lng = coords.longitude;
+    report.center.zoom = zoom;
+  };
+
   return {
     report: report,
     options: options,
     saveReport: saveReport,
     selectOption: selectOption,
-    clear: clear
+    clear: clear,
+    setImage: setImage,
+    setCenter: setCenter
   };
 });
 

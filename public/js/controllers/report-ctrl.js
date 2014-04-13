@@ -1,11 +1,7 @@
 angular.module('landslidesPOA.controllers').controller('ReportCtrl', function($scope, geolocation, reportModel, $upload) {
 
   geolocation.getLocation().then(function(data) {
-    $scope.center = {
-      lat: data.coords.latitude,
-      lng: data.coords.longitude,
-      zoom: 16
-   };
+    reportModel.setCenter(data.coords, 16);
   });
 
   $scope.reportModel = reportModel;
@@ -48,6 +44,7 @@ angular.module('landslidesPOA.controllers').controller('ReportCtrl', function($s
         console.log('percent: ' + parseInt(100.0 * evt.loaded / evt.total));
       }).success(function(data, status, headers, config) {
         console.log(data);
+        reportModel.setImage(data.imageUrl);
       });
     }
   };
