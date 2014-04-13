@@ -1,14 +1,16 @@
 <div ng-controller="ReportCtrl" class="map-view">
+  <div class="map-actions-cancel">
+    <a><img src="../images/icon_cancel.png"></img></a>
+  </div>
   <div class="map-actions">
-    <button>cancel</button>
-    <button ng-click="selectOption(option.id)" ng-repeat="option in reportModel.options">{{option.name}}</button>
+    <a ng-click="selectOption(option.id)" ng-repeat="option in reportModel.options"><img ng-src="../images/{{option.icon}}"></img></a>
   </div>
   <leaflet center="center"></leaflet>
   <div class="map-input">
     <textarea placeholder="Description" ng-model="reportModel.report.description"></textarea>
   </div>
   <div class="map-bottom-actions">
-    <button>upload</button> 
-    <button ng-click="saveReport()">ok</button>
+    <a><img src="../images/icon_camera.png"></img></a>
+    <a ng-click="saveReport()"><img src="../images/icon_check.png"></img></a>
   </div>
 </div>

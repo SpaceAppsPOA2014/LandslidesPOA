@@ -15,20 +15,36 @@ body {
 }
 
 .map-view .map-actions {
+  top: 80px;
+}
+
+.map-view .map-actions, .map-view .map-actions-cancel {
   z-index: 10000;
-  margin-left: 50px;
+  width: 100%;
+  text-align: center;
+}
+
+.map-view .map-actions a, .map-view .map-actions-cancel a, .map-view .map-bottom-actions a  {
+  padding: 5px;
+  cursor: pointer;
+}
+
+.map-view .map-actions a img {
+  width: 50px;
 }
 
 .map-view .map-bottom-actions {
   bottom: 10px;
   z-index: 10000;
+  width: 100%;
+  text-align: center;
 }
 
 .map-view .map-input {
   z-index: 10000;
   width: 100%;
   text-align: center;
-  top: 100px;
+  top: 150px;
 }
 
 .map-view .map-input textarea {
