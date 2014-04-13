@@ -9,7 +9,7 @@ angular.module('landslidesPOA.models').factory('reportModel', function(reportSer
   ];
 
   var saveReport = function() {
-    reportService.saveReport(report);
+    return reportService.saveReport(report);
   };
 
   var selectOption = function(option) {

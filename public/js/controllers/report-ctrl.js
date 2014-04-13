@@ -1,4 +1,4 @@
-angular.module('landslidesPOA.controllers').controller('ReportCtrl', function ($scope, geolocation, reportModel, $upload) {
+angular.module('landslidesPOA.controllers').controller('ReportCtrl', function ($scope, geolocation, reportModel, $upload, $modal) {
 
   geolocation.getLocation().then(function (data) {
     reportModel.setCenter(data.coords, 16);
@@ -55,7 +55,19 @@ angular.module('landslidesPOA.controllers').controller('ReportCtrl', function ($
   $scope.reportModel = reportModel;
 
   $scope.saveReport = function () {
-    reportModel.saveReport();
+    var promise = reportModel.saveReport();
+    promise.then(function() {
+      var modalInstance = $modal.open({
+        templateUrl: 'myModalContent.html',
+        controller: ModalInstanceCtrl,
+      });
+
+      modalInstance.result.then(function () {
+        $log.info('Modal clossed at: ' + new Date());
+      }, function () {
+        $log.info('Modal dismissed at: ' + new Date());
+      });
+    });
   };
 
   $scope.chooseFile = function () {
@@ -87,6 +99,17 @@ angular.module('landslidesPOA.controllers').controller('ReportCtrl', function ($
         reportModel.setImage(data.imageUrl);
       });
     }
+  };
+
+  var ModalInstanceCtrl = function ($scope, $modalInstance) {
+
+    $scope.ok = function () {
+      $modalInstance.close();
+    };
+
+    $scope.cancel = function () {
+      $modalInstance.dismiss('cancel');
+    };
   };
 });
 

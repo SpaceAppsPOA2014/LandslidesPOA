@@ -41,6 +41,9 @@
   border: #fd1916 solid 5px;
 }
 
+div.reveal-modal {
+  z-index: 10000;
+}
 /*
 .map-view>div {
   position: absolute;
