@@ -1,5 +1,5 @@
 <div ng-controller="ReportCtrl" class="map-view">
-    <div class="absolute-menu">
+    <!--<div class="absolute-menu">
         
     </div>
     <div class="absolute-search">    
@@ -12,7 +12,7 @@
             </div>
         </div>
     </div>
-<!--   <div class="absolute footer">
+   <div class="absolute footer">
     <div class="row">
       <div class="small-6 large-6 columns text-center ">
         <input id="file-input" ng-init="chooseFile()" ng-show="false" type="file" ng-file-select="onFileSelect($files)" multiple>
@@ -23,14 +23,19 @@
       </div>
     </div>
 </div> -->
-<leaflet center="center">
+<leafletcenter="reportModel.report.center">
 </leaflet>
 <div class="absolute footer">
     <div class="carousel">
         <ul class="inline-list">
-            <li ng:repeat="report in get()">
-                <a href="{{report.todoItem}}">    
-                    <img src="{{report.todoItem}}" />
+            <li ng:repeat="report in reportModel.report.reports">
+                <a href="#">
+                    <div ng-if="!report.images">
+                        <img src="{{report.images}}" />
+                    </div>
+                    <div ng-if="video == video.large">
+                        <img src="../images/{{reportModel.getOptionbyId(report.hazzardLevel).icon}}" />
+                    </div>
                 </a>
             </li>
         </ul>

@@ -3,13 +3,14 @@ angular.module('landslidesPOA.services').service('baseService', function($resour
   var BASE_URL = '/';
 
   var resources = {
-    SaveReport: {url: 'report/save'}
+    SaveReport: {url: 'report/save'},
+	  FetchReport: {url: 'reports'}
   };
 
   var createResource = function(resourceName) {
     return $resource(BASE_URL + resources[resourceName].url, 
       resources[resourceName].params, {
-      get: {method: 'GET', timeout: 50000},
+      post: {method: 'POST', timeout: 50000},
       query: {method: 'GET', timeout: 50000, isArray:true},
     });
   };
@@ -17,8 +18,8 @@ angular.module('landslidesPOA.services').service('baseService', function($resour
     return createResource(resourceName).post(args).$promise;
   };
 
-  this.get = function() {
-    return createResource(resourceName).get(args).$promise;
+  this.get = function(resourceName, args) {
+    return createResource(resourceName).query(args).$promise;
   };
 
 });

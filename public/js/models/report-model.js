@@ -67,7 +67,8 @@ angular.module('landslidesPOA.models').factory('reportModel', function(reportSer
     clear: clear,
     setImage: setImage,
     setCenter: setCenter,
-    setMarker: setMarker
+    setMarker: setMarker,
+    fetchAll: fetchAll
   };
 });
 

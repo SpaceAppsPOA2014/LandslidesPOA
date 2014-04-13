@@ -50,7 +50,7 @@ angular.module('landslidesPOA.controllers').controller('ReportCtrl', function ($
         }
       }
     };
-
+    
     $scope.reportModel = reportModel;
     reportModel.fetchAll();
     $scope.saveReport = function () {
