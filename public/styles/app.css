@@ -16,6 +16,23 @@
   width: 100%;
 }
 
+.absolute-search {
+  position: absolute;
+  z-index: 1000;
+  width:90%;
+  right:0;
+}
+.absolute-menu {
+  position: fixed;
+  z-index: 1000;
+  width:92px;
+  height:100%;
+  background: rgba(37, 37, 37, 0.98);
+}
+.carousel{background:#444;padding:10px 2px;}
+.inline-list{margin:0px;}
+.inline-list li a{width:140px;height:100px;background:#777;display:block;}
+<!-- END CRISTIAN CUSTOM -->
 .big-button {
   margin-top: 0;
   margin-bottom: 0;

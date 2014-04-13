@@ -1,0 +1,38 @@
+<div ng-controller="ReportCtrl" class="map-view">
+    <div class="absolute-menu">
+        
+    </div>
+    <div class="absolute-search">    
+        <div class="row">
+            <div class="large-10 columns">
+                <input type="text" placeholder="Search..." ng-model="reportModel.report.description"></input>
+            </div>
+            <div class="large-2 columns">
+                <a href="#" class="button [tiny small large]">Search</a>
+            </div>
+        </div>
+    </div>
+<!--   <div class="absolute footer">
+    <div class="row">
+      <div class="small-6 large-6 columns text-center ">
+        <input id="file-input" ng-init="chooseFile()" ng-show="false" type="file" ng-file-select="onFileSelect($files)" multiple>
+        <a id="file-input-button" class="button expand" ng-click="chooseImage()"><img src="../images/icon_camera.png"></img></a>
+      </div>
+      <div class="small-6 large-6 columns text-center ">
+        <a class="button expand" ng-click="saveReport()"><img src="../images/icon_check.png"></img></a>
+      </div>
+    </div>
+</div> -->
+<leaflet center="center">
+</leaflet>
+<div class="absolute footer">
+    <div class="carousel">
+        <ul class="inline-list">
+            <li ng:repeat="report in get()">
+                <a href="{{report.todoItem}}">    
+                    <img src="{{report.todoItem}}" />
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
